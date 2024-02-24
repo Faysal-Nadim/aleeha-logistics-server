@@ -26,7 +26,7 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  pid: {
+  vid: {
     type: String,
     required: true,
   },
