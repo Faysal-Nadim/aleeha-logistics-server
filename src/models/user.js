@@ -65,6 +65,20 @@ const userSchema = new mongoose.Schema(
         default: null,
       },
     },
+    role: {
+      enum: ["user", "admin"],
+    },
+    type: {
+      type: String,
+      enum: [
+        "customer",
+        "handler",
+        "super-admin",
+        "customer-care",
+        "accounts",
+        "shipping-agent",
+      ],
+    },
   },
   { timestamps: true }
 );
