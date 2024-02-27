@@ -12,7 +12,7 @@ const invoiceSchema = new mongoose.Schema(
     },
     paidAmount: {
       type: Number,
-      required: true,
+      default: 0,
     },
     status: {
       type: String,

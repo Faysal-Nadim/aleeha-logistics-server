@@ -1,8 +1,5 @@
 const express = require("express");
-const {
-  addProductToCart,
-  getProductsForCart,
-} = require("../controllers/product");
+const { addProductToCart, getCartProducts } = require("../controllers/product");
 const {
   validateCartForUser,
   requireSignIn,
@@ -21,7 +18,7 @@ router.get(
   "/user/product/get-cart-products",
   requireSignIn,
   isUser,
-  getProductsForCart
+  getCartProducts
 );
 
 module.exports = router;

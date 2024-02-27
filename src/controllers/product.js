@@ -37,7 +37,7 @@ exports.addProductToCart = (req, res) => {
   });
 };
 
-exports.getProductsForCart = (req, res) => {
+exports.getCartProducts = (req, res) => {
   Product.find({ user: req.user._id, type: "cart" }).exec((error, products) => {
     if (error) {
       return res.status(400).json({ msg: "Something Went Wrong" });

@@ -44,11 +44,9 @@ const orderSchema = new mongoose.Schema(
           actionType: {
             type: String,
             enum: ["purchase", "refund"],
-            default: null,
           },
           msg: {
             type: String,
-            default: null,
           },
           reason: {
             type: String,
@@ -56,17 +54,15 @@ const orderSchema = new mongoose.Schema(
           },
           amount: {
             type: Number,
-            default: null,
           },
           status: {
             type: String,
             enum: ["pending", "resolved"],
-            default: null,
           },
         },
       },
     ],
-    addresses: {
+    address: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Address",
       required: true,
