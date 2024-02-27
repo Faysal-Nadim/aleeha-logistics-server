@@ -3,10 +3,17 @@ const env = require("dotenv");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
+//App Initialization
 const app = express();
 
+//Environment Variable Initialization
 env.config();
 
+//Route Defination
+const authRoute = require("./routes/user");
+const productRoute = require("./routes/product");
+
+//Database Initialization
 mongoose
   .connect(
     `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@aleehalogistics.0omsyte.mongodb.net/?retryWrites=true&w=majority`,
@@ -19,10 +26,14 @@ mongoose
     console.log("Unable to connect" + err);
   });
 
+//App Configuration
 app.use(cors());
 app.options("*", cors());
 app.use(express.json());
+app.use("/api/v1", authRoute);
+app.use("/api/v1", productRoute);
 
+//Port Configuration
 app.listen(process.env.PORT, () => {
   console.log(`Server Running On PORT ${process.env.PORT}`);
 });

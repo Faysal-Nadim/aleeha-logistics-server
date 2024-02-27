@@ -36,13 +36,12 @@ const userSchema = new mongoose.Schema(
       },
       balance_onhold: {
         type: Number,
-        default: true,
+        default: 0,
       },
     },
     others: {
       gender: {
         type: String,
-        required: true,
         enum: ["Male", "Female", "Others"],
       },
       country: {
@@ -70,8 +69,20 @@ const userSchema = new mongoose.Schema(
         default: null,
       },
     },
+    verification: {
+      isVerified: {
+        type: Boolean,
+        default: false,
+      },
+      code: {
+        type: Number,
+        default: null,
+      },
+    },
     role: {
+      type: String,
       enum: ["user", "admin"],
+      default: "user",
     },
     type: {
       type: String,
@@ -83,6 +94,7 @@ const userSchema = new mongoose.Schema(
         "accounts",
         "shipping-agent",
       ],
+      default: "customer",
     },
   },
   { timestamps: true }
