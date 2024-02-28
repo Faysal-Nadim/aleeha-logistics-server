@@ -40,6 +40,27 @@ const orderSchema = new mongoose.Schema(
           type: Boolean,
           default: false,
         },
+        status: {
+          type: String,
+          enum: [
+            "pending",
+            "approved",
+            "processing",
+            "purchased",
+            "shipped by seller",
+            "received by agent",
+            "in transit",
+            "at destination airport",
+            "released from customs",
+            "received by aleeha logistics",
+            "cancelled",
+            "refund initiated",
+            "refunded",
+            "shipped",
+            "delivered",
+          ],
+          default: "pending",
+        },
         issue: {
           actionType: {
             type: String,

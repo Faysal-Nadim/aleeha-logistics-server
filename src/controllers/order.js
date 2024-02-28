@@ -48,7 +48,11 @@ exports.placeOrderForUser = (req, res) => {
 
 exports.getUserOrder = (req, res) => {
   Order.find({ user: req.user._id })
-    .populate("invoice handler orderItems.product")
+    .populate("invoice orderItems.product")
+    .populate(
+      "handler",
+      "firstName lastName email phone shipping_mark role type"
+    )
     .exec((error, orders) => {
       if (error) {
         return res.status(400).json({ msg: "Something Went Wrong", error });
