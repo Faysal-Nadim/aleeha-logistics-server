@@ -27,7 +27,7 @@ const disputeSchema = new mongoose.Schema(
     },
     disputeMsg: {
       type: String,
-      default: null,
+      required: true,
     },
     disputeStatus: {
       type: String,
@@ -36,7 +36,7 @@ const disputeSchema = new mongoose.Schema(
     },
     amount: {
       type: Number,
-      default: 0,
+      required: true,
     },
   },
   { timestamps: true }
