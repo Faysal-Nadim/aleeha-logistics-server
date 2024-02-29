@@ -14,6 +14,7 @@ const authRoute = require("./routes/user");
 const productRoute = require("./routes/product");
 const orderRoute = require("./routes/order");
 const courierRoute = require("./routes/courier");
+const addressRoute = require("./routes/address");
 
 //Database Initialization
 mongoose
@@ -36,6 +37,7 @@ app.use("/api/v1", authRoute);
 app.use("/api/v1", productRoute);
 app.use("/api/v1", orderRoute);
 app.use("/api/v1", courierRoute);
+app.use("/api/v1", addressRoute);
 
 //Port Configuration
 app.listen(process.env.PORT, () => {
